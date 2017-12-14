@@ -6,6 +6,13 @@
 #
 
 use strict;
+BEGIN {
+  if ( $> != 0 ) {
+    print "1..0 # SKIP This test requires running as root";
+    exit 0;
+  }
+}
+
 use ExtUtils::testlib;
 
 use Net::Pcap;
